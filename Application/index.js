@@ -2,12 +2,12 @@
 const fs = require('fs')
 const inquirer = require('inquirer')
 const markdown = require('./utils/generateMarkdown.js');
-const { default: Choices } = require('inquirer/lib/objects/choices');
+
 // TODO: Create an array of questions for user input
 //
 const questions = ['What is your GitHub username?','What is your email address?', 'What is the title of your project?',
-    'Write a description of your application', 'Choose a license for your project',
-    'What command should be run to install dependencies', 'What command should be run to run tests', 'What does the user need to know about using the repo?',
+    'Write a description of your application.', 'Choose a license for your project.',
+    'What command should be run to install dependencies?', 'What command should be run to run tests?', 'What does the user need to know about using the repo?',
     'What does the user need to know about contributing to the repo?'];
 
 // TODO: Create a function to write README file
@@ -52,12 +52,14 @@ function init() {
             {
                 type: 'input',
                 message: questions[5],
-                name: 'install'
+                name: 'install',
+                default: 'npm i'
             },
             {
                 type: 'input',
                 message: questions[6],
-                name: 'test'
+                name: 'test',
+                default: 'npm test'
             },
             {
                 type: 'input',
